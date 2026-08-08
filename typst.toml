@@ -1,0 +1,14 @@
+[package]
+name = "tu-dortmund-phd-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jannis Guido Speer"]
+description = "A Typst template for PhD theses at TU Dortmund University"
+repository = "https://github.com/jspeer/tu-dortmund-phd-thesis"
+keywords = ["thesis", "phd", "tu-dortmund", "dissertation"]
+categories = ["thesis"]
+minimum-typst-version = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
