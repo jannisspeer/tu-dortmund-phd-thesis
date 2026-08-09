@@ -19,8 +19,8 @@ Clone this repository and start editing `template/thesis.typ`:
 
 ```sh
 git clone https://github.com/jspeer/tu-dortmund-phd-thesis.git
-cd tu-dortmund-phd-thesis/template
-typst compile thesis.typ
+cd tu-dortmund-phd-thesis
+typst compile --root . template/thesis.typ
 ```
 
 ## Usage
