@@ -21,3 +21,13 @@ Tables can also be included:
   ),
   caption: [Example table with physical constants.],
 )
+
+Here is now a long body of text:
+
+#lorem(200)
+
+#lorem(100)
+
+#lorem(300)
+
+#lorem(400)

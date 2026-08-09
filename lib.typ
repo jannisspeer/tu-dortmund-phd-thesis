@@ -64,12 +64,19 @@
       header: context {
         let p = here().page()
         if p <= 2 { return }
+        let all = query(heading.where(level: 1))
+        if all.any(h => h.location().page() == p) { return }
         let before = query(heading.where(level: 1).before(here()))
         if before.len() > 0 {
           let ch = before.last()
+          let nums = counter(heading).at(ch.location())
+          let num = if ch.numbering == none { none } else {
+            numbering(ch.numbering, ..nums.slice(0, ch.level))
+          }
+          let label = if num == none { ch.body } else { [#num #ch.body] }
           set text(size: 9pt)
           block(width: 100%)[
-            #align(center)[#ch.body]
+            #align(center)[#label]
             #v(2pt)
             #line(length: 100%, stroke: 0.5pt + accent)
           ]
