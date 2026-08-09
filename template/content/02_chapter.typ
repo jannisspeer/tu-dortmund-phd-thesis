@@ -10,7 +10,7 @@ $ E = m c^2 $ <einstein>
 
 As shown in @einstein, energy and mass are related by the speed of light squared.
 
-Tables can also be included:
+@physical-constants shows different physical constants.
 
 #figure(
   table(
@@ -20,7 +20,7 @@ Tables can also be included:
     [Planck constant], [$h$], [$6.626 times 10^-34$ J s],
   ),
   caption: [Example table with physical constants.],
-)
+)<physical-constants>
 
 Here is now a long body of text:
 

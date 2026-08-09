@@ -187,47 +187,56 @@
       #text(size: 12pt)[
         Dissertation zur Erlangung des akademischen Grades \
         #degree
+
+        #v(3em)
+
+        vorgelegt von \
+        #author \
+        geboren am #birthdate in #birthplace
+
+        #v(3em)
+
+        #faculty \
+        #university
+
+        #v(1em)
+
+        #city, #date
       ]
-
-      #v(3em)
-
-      vorgelegt von \
-      #text(size: 14pt)[#author] \
-      geboren am #birthdate in #birthplace
-
-      #v(3em)
-
-      #faculty \
-      #university
-
-      #v(1em)
-
-      #city, #date
     ]
   ]
 
   // ── Assessment page ────────────────────────────────────────
   page(header: none, footer: none)[
-    #v(2em)
+    #v(35em)
 
     Der #faculty der #university zur Erlangung des akademischen Grades eines Doktors der Naturwissenschaften vorgelegte Dissertation.
 
-    #v(3em)
+    #v(1em)
 
-    #block[
-      #set text(size: 11pt)
-      #table(
-        columns: (auto, 1fr),
-        column-gutter: 1.5em,
-        row-gutter: 0.8em,
-        [Gutachter:], [#first_corrector],
-        [], [#second_corrector],
-        [Vorsitzender der Prüfungskommission:], [#examination_committee_chair],
-        [Vertreter:in der wissenschaftlichen Mitarbeiter*innen:], [#phd_representative],
-        [Datum des Einreichens der Dissertation:], [#submission_date],
-        [Datum der mündlichen Prüfung:], [#defense_date],
-      )
-    ]
+    Gutachter: \
+    #first_corrector \
+    #second_corrector
+
+    #v(1em)
+
+    Vorsitzender der Prüfungskommission \
+    #examination_committee_chair
+
+    #v(1em)
+
+    Vertreter:in der wissenschaftlichen Mitarbeiter*innen \
+    #phd_representative
+
+    #v(1em)
+
+    Datum des Einreichens der Dissertation \
+    #submission_date
+
+    #v(1em)
+
+    Datum der mündlichen Prüfung \
+    #defense_date
   ]
 
   // ── Front matter starts here (Roman numeral pages) ──────────
