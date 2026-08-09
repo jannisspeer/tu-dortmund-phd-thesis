@@ -84,7 +84,7 @@
       },
     footer: context {
       let p = here().page()
-      if p <= 2 { return }
+      if p <= 1 { return }
       let m = matter.get()
       let n = counter(page).get().first()
       let display = if m == "front" {
@@ -108,7 +108,7 @@
   show heading.where(level: 1): it => {
     counter(figure).update(0)
       counter(math.equation).update(0)
-    pagebreak(weak: true)
+    if it.outlined { pagebreak(weak: true) }
     v(2em)
     set text(size: 18pt, weight: "bold", fill: accent)
     it
@@ -207,7 +207,7 @@
   ]
 
   // ── Assessment page ────────────────────────────────────────
-  page(header: none, footer: none)[
+  page(header: none)[
     #v(35em)
 
     Der #faculty der #university zur Erlangung des akademischen Grades eines Doktors der Naturwissenschaften vorgelegte Dissertation.
@@ -240,7 +240,5 @@
   ]
 
   // ── Front matter starts here (Roman numeral pages) ──────────
-  counter(page).update(1)
-
   body
 }
