@@ -11,7 +11,7 @@ Describe the motivation for your research here. Reference relevant literature us
 Provide an overview of the remaining chapters of the thesis here.
 
 #figure(
-  image("example-figure.svg"),
+  image("plots/example-figure.svg"),
   caption: [An example figure with a caption.],
 ) <example-figure>
 
