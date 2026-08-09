@@ -18,6 +18,7 @@
   defense_date: "1. October 2025",
   tucolor: true,
   binding_correction: 12mm,
+  two_sided: false,
   logo: "logos/tu-logo.svg",
 )
 

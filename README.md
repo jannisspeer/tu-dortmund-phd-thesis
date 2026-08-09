@@ -42,6 +42,7 @@ Edit `thesis.typ` to set your thesis metadata:
   defense_date: "1. October 2025",
   tucolor: true,           // TU green accent color
   binding_correction: 12mm, // binding offset
+  two_sided: false,         // double-sided printing (binding correction on inner side, running heading and page number on outer side)
   logo: "logos/tu-logo.svg",
 )
 ```
@@ -100,6 +101,7 @@ Edit `thesis.typ` to set your thesis metadata:
 - Running headers with current chapter title and header line
 - Optional TU green accent color (`tucolor: true`)
 - Configurable binding correction
+- Optional double-sided printing (`two_sided: true`): binding correction on the inner side, running heading and page number on the outer side
 - Bibliography support via Typst's built-in `bibliography()`
 - Table of contents (chapters and sections)
 
@@ -124,6 +126,7 @@ Edit `thesis.typ` to set your thesis metadata:
 | `defense_date`             | `""`                            | Date of oral defense                      |
 | `tucolor`                  | `false`                         | Use TU green accent color                 |
 | `binding_correction`       | `12mm`                          | Binding correction offset                 |
+| `two_sided`                | `false`                         | Double-sided printing (binding correction on inner side, running heading and page number on outer side) |
 | `logo`                     | `none`                          | Path to logo (defaults to bundled TU logo)|
 
 ## License

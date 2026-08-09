@@ -45,6 +45,7 @@
   defense_date: "",
   tucolor: false,
   binding_correction: 12mm,
+  two_sided: false,
   logo: none,
   body,
 ) = {
@@ -53,35 +54,56 @@
   set document(title: title, author: author)
 
   // ── Page setup ──────────────────────────────────────────────
-  set page(
-    paper: "a4",
-    margin: (
+  // For double-sided printing, the binding correction is added to the
+  // inner side (towards the spine) and the running heading / page number
+  // are placed on the outer side. For single-sided printing, the binding
+  // correction is always on the left and the heading / page number are
+  // centered.
+  let page-margin = if two_sided {
+    (
+      inside: 25mm + binding_correction,
+      outside: 25mm,
+      top: 30mm,
+      bottom: 35mm,
+    )
+  } else {
+    (
       left: 25mm + binding_correction,
       right: 25mm,
       top: 30mm,
       bottom: 35mm,
-    ),
-      header: context {
-        let p = here().page()
-        if p <= 2 { return }
-        let all = query(heading.where(level: 1))
-        if all.any(h => h.location().page() == p) { return }
-        let before = query(heading.where(level: 1).before(here()))
-        if before.len() > 0 {
-          let ch = before.last()
-          let nums = counter(heading).at(ch.location())
-          let num = if ch.numbering == none { none } else {
-            numbering(ch.numbering, ..nums.slice(0, ch.level))
-          }
-          let label = if num == none { ch.body } else { [#num #ch.body] }
-          set text(size: 9pt)
-          block(width: 100%)[
-            #align(center)[#label]
-            #v(2pt)
-            #line(length: 100%, stroke: 0.5pt + accent)
-          ]
+    )
+  }
+
+  // Outer alignment: right on odd pages, left on even pages (binding: left)
+  let outer-side(p) = if calc.odd(p) { right } else { left }
+
+  set page(
+    paper: "a4",
+    binding: if two_sided { left } else { auto },
+    margin: page-margin,
+    header: context {
+      let p = here().page()
+      if p <= 2 { return }
+      let all = query(heading.where(level: 1))
+      if all.any(h => h.location().page() == p) { return }
+      let before = query(heading.where(level: 1).before(here()))
+      if before.len() > 0 {
+        let ch = before.last()
+        let nums = counter(heading).at(ch.location())
+        let num = if ch.numbering == none { none } else {
+          numbering(ch.numbering, ..nums.slice(0, ch.level))
         }
-      },
+        let label = if num == none { ch.body } else { [#num #ch.body] }
+        set text(size: 9pt)
+        let h-align = if two_sided { outer-side(p) } else { center }
+        block(width: 100%)[
+          #align(h-align)[#label]
+          #v(2pt)
+          #line(length: 100%, stroke: 0.5pt + accent)
+        ]
+      }
+    },
     footer: context {
       let p = here().page()
       if p <= 1 { return }
@@ -93,7 +115,8 @@
         str(n)
       }
       set text(fill: accent)
-      align(center)[#display]
+      let f-align = if two_sided { outer-side(p) } else { center }
+      align(f-align)[#display]
     },
   )
 

@@ -7,7 +7,7 @@ description = "A Typst template for PhD theses at TU Dortmund University"
 repository = "https://github.com/jspeer/tu-dortmund-phd-thesis"
 keywords = ["thesis", "phd", "tu-dortmund", "dissertation"]
 categories = ["thesis"]
-minimum-typst-version = "0.12.0"
+minimum-typst-version = "0.15.0"
 
 [template]
 path = "template"
