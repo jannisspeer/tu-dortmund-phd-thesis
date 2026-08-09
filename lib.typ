@@ -56,10 +56,10 @@
   set page(
     paper: "a4",
     margin: (
-      left: 22mm + binding_correction,
-      right: 22mm,
-      top: 25mm,
-      bottom: 25mm,
+      left: 25mm + binding_correction,
+      right: 25mm,
+      top: 30mm,
+      bottom: 35mm,
     ),
       header: context {
         let p = here().page()
@@ -92,10 +92,10 @@
 
   // ── Text and paragraph setup ────────────────────────────────
   set text(font: "New Computer Modern", size: 11pt, lang: "en")
-  set par(leading: 0.85em, justify: true, spacing: 0.85em)
+  set par(leading: 0.7em, justify: true, spacing: 1.1em)
 
-    // ── Heading numbering ──────────────────────────────────────
-    set heading(numbering: "1.1.1")
+  // ── Heading numbering ──────────────────────────────────────
+  set heading(numbering: "1.1.1")
 
   // ── Heading show rules ─────────────────────────────────────
   show heading.where(level: 1): it => {
@@ -140,6 +140,9 @@
       set text(size: 10pt)
       block(width: 90%, spacing: 0.5em)[#it]
     }
+
+  // ── Equation font ─────────────────────────────────────
+  show math.equation: set text(font: "New Computer Modern Math")
 
   // ── Equation numbering ─────────────────────────────────────
   set math.equation(numbering: (..n) => context {
