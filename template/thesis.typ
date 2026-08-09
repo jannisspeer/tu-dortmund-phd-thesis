@@ -19,7 +19,7 @@
   tucolor: true,
   binding_correction: 12mm,
   two_sided: false,
-  logo: "logos/tu-logo.svg",
+  logo: read("logos/tu-logo.svg", encoding: none),
 )
 
 // ── Front matter (Roman numeral pages) ─────────────────────────

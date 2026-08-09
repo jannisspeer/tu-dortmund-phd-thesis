@@ -43,7 +43,7 @@ Edit `thesis.typ` to set your thesis metadata:
   tucolor: true,           // TU green accent color
   binding_correction: 12mm, // binding offset
   two_sided: false,         // double-sided printing (binding correction on inner side, running heading and page number on outer side)
-  logo: "logos/tu-logo.svg",
+  logo: read("logos/tu-logo.svg", encoding: none),
 )
 ```
 
@@ -127,7 +127,7 @@ Edit `thesis.typ` to set your thesis metadata:
 | `tucolor`                  | `false`                         | Use TU green accent color                 |
 | `binding_correction`       | `12mm`                          | Binding correction offset                 |
 | `two_sided`                | `false`                         | Double-sided printing (binding correction on inner side, running heading and page number on outer side) |
-| `logo`                     | `none`                          | Path to logo (defaults to bundled TU logo)|
+| `logo`                     | `none`                          | Logo image bytes (e.g. `read("logos/tu-logo.svg", encoding: none)`; `none` = no logo)|
 
 ## License
 

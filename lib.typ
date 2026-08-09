@@ -196,8 +196,6 @@
   )[
     #if logo != none [
       #image(logo, height: 1.5cm)
-    ] else [
-      #image("logos/tu-logo.svg", height: 1.5cm)
     ]
 
     #v(3em)
