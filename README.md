@@ -1,6 +1,6 @@
-# TU Dortmund PhD Thesis Template (Typst)
+# u3tudo
 
-A Typst template for PhD theses at TU Dortmund University, inspired by the
+An unofficial Typst template for PhD theses at TU Dortmund University, inspired by the
 [LaTeX TUDoThesis](https://github.com/maxnoe/tudothesis) class.
 
 ## Quick Start
@@ -8,7 +8,7 @@ A Typst template for PhD theses at TU Dortmund University, inspired by the
 ### Using `typst init`
 
 ```sh
-typst init @preview/tu-dortmund-phd-thesis
+typst init @preview/u3tudo
 ```
 
 This creates a new directory with all template files.
@@ -18,8 +18,8 @@ This creates a new directory with all template files.
 Clone this repository and start editing `template/thesis.typ`:
 
 ```sh
-git clone https://github.com/jspeer/tu-dortmund-phd-thesis.git
-cd tu-dortmund-phd-thesis
+git clone https://github.com/jspeer/u3tudo.git
+cd u3tudo
 typst compile --root . template/thesis.typ
 ```
 
