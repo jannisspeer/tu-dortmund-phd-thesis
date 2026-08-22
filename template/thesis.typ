@@ -19,6 +19,7 @@
   tucolor: true,
   binding-correction: 12mm,
   two-sided: false,
+  line-numbers: true,
   logo: none, // read("logos/tu-logo.svg", encoding: none)
 )
 
@@ -29,18 +30,18 @@
 #outline(title: [Contents])
 
 // ── Main matter (Arabic numeral pages) ─────────────────────────
-#mainmatter
-
+#mainmatter[
 #include "content/01_introduction.typ"
 #include "content/02_chapter.typ"
+]
 
 // ── Appendix (lettered chapters) ───────────────────────────────
-#appendix
+#appendix()
 
 #include "content/appendix.typ"
 
 // ── Back matter ────────────────────────────────────────────────
-#backmatter
+#backmatter()
 
 #bibliography("references.bib", title: [References], style: "ieee")
 

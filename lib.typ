@@ -6,23 +6,33 @@
 // State tracking which part of the document we're in
 #let matter = state("matter", "front")
 
+// State tracking for showing line numbers in mainmatter
+#let line-numbers-state = state("line-numbers", false)
+
 // Transition to main matter: Arabic page numbers, reset heading counter
-#let mainmatter = {
+#let mainmatter(body) = {
   pagebreak()
   counter(page).update(1)
   counter(heading).update(0)
   matter.update("main")
+  context {
+    set par.line(numbering: if line-numbers-state.get() { "1" } else { none })
+    show figure: set par.line(numbering: none)
+    show heading: set par.line(numbering: none)
+    show math.equation: set par.line(numbering: none)
+    body
+  }
 }
 
 // Transition to appendix: lettered chapters, reset heading counter
-#let appendix = {
+#let appendix() = {
   pagebreak()
   counter(heading).update(0)
   matter.update("appendix")
 }
 
 // Transition to back matter: unnumbered headings
-#let backmatter = {
+#let backmatter() = {
   pagebreak()
   matter.update("back")
 }
@@ -46,6 +56,7 @@
   tucolor: false,
   binding-correction: 12mm,
   two-sided: false,
+  line-numbers: false,
   logo: none,
   body,
 ) = {
@@ -124,8 +135,19 @@
   set text(font: "New Computer Modern", size: 11pt, lang: "en")
   set par(leading: 0.7em, justify: true, spacing: 1.1em)
 
+  // ── Line numbers in mainmatter ─────────────────────────────
+  line-numbers-state.update(line-numbers)
+
   // ── Heading numbering ──────────────────────────────────────
-  set heading(numbering: "1.1.1")
+  set heading(numbering: (..n) => context {
+    if matter.get() == "appendix" {
+      numbering("A.1.1", ..n)
+    } else if matter.get() == "back" {
+      none
+    } else {
+      numbering("1.1.1", ..n)
+    }
+  })
 
   // ── Heading show rules ─────────────────────────────────────
   show heading.where(level: 1): it => {

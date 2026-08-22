@@ -43,6 +43,7 @@ Edit `thesis.typ` to set your thesis metadata:
   tucolor: true,           // TU green accent color
   binding-correction: 12mm, // binding offset
   two-sided: false,         // double-sided printing (binding correction on inner side, running heading and page number on outer side)
+  line-numbers: false,      // show line numbers in main matter (for review drafts)
   logo: read("logos/tu-logo.svg", encoding: none),
 )
 ```
@@ -103,6 +104,7 @@ Edit `thesis.typ` to set your thesis metadata:
 - Optional TU green accent color (`tucolor: true`)
 - Configurable binding correction
 - Optional double-sided printing (`two-sided: true`): binding correction on the inner side, running heading and page number on the outer side
+- Optional line numbering in main matter (`line-numbers: true`): continuous line numbers for review drafts, suppressed in figures, tables, and code blocks
 - Bibliography support via Typst's built-in `bibliography()`
 - Table of contents (chapters and sections)
 
@@ -128,6 +130,7 @@ Edit `thesis.typ` to set your thesis metadata:
 | `tucolor`                  | `false`                         | Use TU green accent color                 |
 | `binding-correction`       | `12mm`                          | Binding correction offset                 |
 | `two-sided`                | `false`                         | Double-sided printing (binding correction on inner side, running heading and page number on outer side) |
+| `line-numbers`             | `false`                         | Show continuous line numbers in main matter (for review drafts) |
 | `logo`                     | `none`                          | Logo image bytes (e.g. `read("logos/tu-logo.svg", encoding: none)`; `none` = no logo)|
 
 ## License

@@ -1,4 +1,4 @@
-#heading(level: 1, numbering: "A.1.1")[List of abbreviations]
+= List of abbreviations
 
 #table(
   columns: (auto, 1fr),
